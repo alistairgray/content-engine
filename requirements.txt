@@ -1,0 +1,3 @@
+# Official MCP Python SDK (bundles FastMCP). Pin/upgrade as needed.
+# Check the latest version before installing: https://pypi.org/project/mcp/
+mcp>=1.27.0
