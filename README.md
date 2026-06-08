@@ -63,6 +63,8 @@ Create a `corpus/` folder and add `.md` files — your CV, portfolio text, past 
 
 **4. Try it with the MCP Inspector (no Claude Desktop needed)**
 
+> Note: don't run `python server.py` directly — it starts the server in stdio mode and hangs waiting for a client. Use the Inspector command below instead, which launches the server and gives you a browser UI to interact with it.
+
 ```bash
 npx @modelcontextprotocol/inspector python server.py
 ```
@@ -81,7 +83,13 @@ Register the server in Claude Desktop's MCP config (see the [current MCP docs](h
 
 **`npx` not found** — you need Node.js installed. Download it from [nodejs.org](https://nodejs.org).
 
-**Inspector connects but shows no tools** — make sure the venv is active before running the `npx` command, so the `python` it calls resolves to the one with `mcp` installed.
+**Inspector connects but shows no tools, or errors mention the wrong Python/directory** — the Inspector may be picking up a stale config from a previous project. Make sure your venv is active and you're in the right folder before running `npx`. To be explicit about which Python to use, pass the full path:
+
+```powershell
+npx @modelcontextprotocol/inspector C:\Users\grayw\dev\claude-skills\.venv\Scripts\python.exe server.py
+```
+
+Run this from `c:\Users\grayw\dev\claude-skills` so `server.py` resolves correctly.
 
 **`corpus://` resources return "No document named..."** — check that your files are in the `corpus/` folder next to `server.py` and have a `.md` extension.
 
