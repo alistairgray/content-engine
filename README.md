@@ -95,6 +95,6 @@ Run this from `c:\Users\grayw\dev\claude-skills` so `server.py` resolves correct
 
 ## A few things to know
 
-This is a prototype: one transformation, three server capabilities. Scope was chosen on purpose — the goal is to demonstrate the MCP + Skills pattern clearly, not to build a production system.
+This is a prototype: one transformation, three server capabilities. Scope was chosen on purpose where the goal is to demonstrate the MCP + Skills pattern clearly, not to build a production system.
 
 That maps directly onto the role: Claude Skills, MCP integration, machine-readable docs, automated quality gate, enabling non-writers.
