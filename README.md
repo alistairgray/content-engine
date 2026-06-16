@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 **3. Add your corpus**
 
-Create a `corpus/` folder and add `.md` files — your CV, portfolio text, past docs. These become queryable resources for any connected MCP client.
+Create a `corpus/` folder and add `.md` files. Try adding your CV, portfolio text, past docs, basically anything written to check. These become queryable resources for any connected MCP client.
 
 **4. Try it with the MCP Inspector (no Claude Desktop needed)**
 
@@ -86,15 +86,16 @@ Register the server in Claude Desktop's MCP config (see the [current MCP docs](h
 **Inspector connects but shows no tools, or errors mention the wrong Python/directory** — the Inspector may be picking up a stale config from a previous project. Make sure your venv is active and you're in the right folder before running `npx`. To be explicit about which Python to use, pass the full path:
 
 ```powershell
-npx @modelcontextprotocol/inspector C:\Users\grayw\dev\claude-skills\.venv\Scripts\python.exe server.py
+npx @modelcontextprotocol/inspector YOUR_PATH\content-engine\.venv\Scripts\python.exe server.py
 ```
 
-Run this from `c:\Users\grayw\dev\claude-skills` so `server.py` resolves correctly.
+Run this from `YOUR_PATH\content-engine` so that the `server.py` resolves correctly.
 
 **`corpus://` resources return "No document named..."** — check that your files are in the `corpus/` folder next to `server.py` and have a `.md` extension.
 
 ## A few things to know
 
+Essentially this brings together Claude Skills, MCP integration, machine-readable docs, and an automated quality gate. All of this is key to good content!
+
 This is a prototype: one transformation, three server capabilities. Scope was chosen on purpose where the goal is to demonstrate the MCP + Skills pattern clearly, not to build a production system.
 
-That maps directly onto the role: Claude Skills, MCP integration, machine-readable docs, automated quality gate, enabling non-writers.
