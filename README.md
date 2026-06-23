@@ -18,9 +18,10 @@ It features a miniature AI content pipeline which turns rough technical notes in
 content-engine/
 ├── server.py                    # FastMCP server: corpus + lint_style + draft_doc
 ├── requirements.txt
-├── SKILL.md                     # the skill: process, voice, structure, output
 ├── style-guide.md               # full house-style ruleset + self-check
-└── corpus/                      # your .md files (CV, portfolio text, past docs)
+├── corpus/                      # your .md files (CV, portfolio text, past docs)
+└── technical-doc-writer/
+    └── SKILL.md                 # the skill: process, voice, structure, output
 ```
 
 ## The two pieces, and how they relate
@@ -73,7 +74,38 @@ Open the URL it prints. Click **Connect**, then explore the tools and prompts di
 
 **5. Connect to Claude Desktop**
 
-Register the server in Claude Desktop's MCP config (see the [current MCP docs](https://modelcontextprotocol.io/docs/tools/claude-desktop)) and restart the app. The `draft_doc` prompt and `lint_style` tool will then be available in your Claude conversations.
+Claude Desktop is the client that runs the MCP server and gives it a real AI to work with. You need it installed and running for the full pipeline to work — the MCP Inspector (step 4) only lets you poke at the server directly, it doesn't generate content.
+
+**a. Install Claude Desktop** if you haven't already — download it from [claude.ai/download](https://claude.ai/download).
+
+**b. Register the MCP server.** Open Claude Desktop's config file:
+
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+- Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+Add this block (adjust the path to match where you cloned this repo):
+
+```json
+{
+  "mcpServers": {
+    "content-engine": {
+      "command": "YOUR_PATH\\content-engine\\.venv\\Scripts\\python.exe",
+      "args": ["YOUR_PATH\\content-engine\\server.py"]
+    }
+  }
+}
+```
+
+**c. Add the Skill.** The `draft_doc` prompt tells Claude to use the `technical-doc-writer` skill — but Claude needs to know what that skill is. Add it as project instructions:
+
+1. Open Claude Desktop and create a new **Project**
+2. Open the project's instructions (the notepad icon)
+3. Paste the full contents of `technical-doc-writer/SKILL.md` into the instructions field
+4. Save
+
+**d. Restart Claude Desktop** fully (quit from the tray/menu bar, then reopen). A hammer icon in the chat input confirms the MCP server connected successfully.
+
+**e. Try it.** In your project, use the `draft_doc` prompt, paste in some rough notes, and watch Claude draft a house-style doc and lint it automatically.
 
 ## Troubleshooting
 
