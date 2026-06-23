@@ -1,6 +1,6 @@
 ---
 name: technical-doc-writer
-description: Use when turning rough technical input — messy project notes, a changelog, a draft, a sparse code comment — into a publication-ready technical document. Produces docs in a fixed house style (second person, reader-centric, reasoned instructions, machine-readable frontmatter) so that engineers and PMs can publish high-quality content themselves without a writer in the loop. Trigger on requests like "write this up", "turn these notes into docs", "draft a doc for this changelog", or "clean up this draft to house style".
+description: Turn rough technical notes or changelogs into publication-ready docs in a fixed house style: second person, reasoned steps, machine-readable frontmatter. Use when writing technical docs.
 ---
 
 # Technical Doc Writer

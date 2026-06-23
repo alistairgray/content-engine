@@ -1,3 +1,0 @@
-In our previous article, we demonstrated how you can use Leanspace Routes to perform on-premise encryption and decryption while still enjoying the benefits of the cloud. The Routes tool solves some of the major problems that impact the ability of satellite operators to scale their operations. If you’re not familiar with the Routes tool by Leanspace, learn more about it via this introductory blog article here.
-
-In this article, we explore how you can build a Routes yaml file which models the processing steps of your incoming and outgoing data flows. We’ll also show how you can take advantage of the built-in connectors and processors provided by Leanspace. 
